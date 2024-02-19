@@ -9,3 +9,31 @@ Website ini dibuat oleh dua anak dari SMKN 12 Jakarta!
 Dibuat oleh: 
 - Muhammad Habibullah Mursalin [cinosjuhchi](https://github.com/cinosjuhchi)
 - Zidane Athallah Winata [Azepp](https://github.com/Azepp)
+
+## Langkah Langkah Penginstallan
+
+**Klon Proyek**
+
+```shell
+git clone https://github.com/pid2024/saver-app.git
+```
+
+```shell
+cd saver-app
+```
+
+```shell
+composer install
+```
+
+```shell
+npm install
+```
+
+```shell
+cp .env-example .env
+```
+
+```shell
+php artisan key:generate
+```
