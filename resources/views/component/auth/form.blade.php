@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        @vite('resources/css/app.css')
-    </head>
-    <body>
-        <div class="flex min-h-full flex-col lg:items-center lg:h-screen justify-center px-6 py-12 lg:px-8 rounded-lg shadow-sm">
+        <div class="flex flex-col h-screen justify-center px-6 py-12 lg:px-8 rounded-lg shadow-sm">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2
                     class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
@@ -67,5 +58,3 @@
                 </form>
             </div>
         </div>
-    </body>
-</html>

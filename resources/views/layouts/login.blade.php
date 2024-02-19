@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <div>
+    <div class="container mx-auto">
         @include('component.auth.form')
     </div>
 
