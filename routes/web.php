@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
-Route::get('/', function () {
-    return view('login.index');
-});
+Route::get("/", [DashboardController::class,"index"])->middleware('auth')->name('dashboard');
+Route::get('/autentikasi', [AuthenticateController::class, 'index'])->name('login');
+Route::post('login', [AuthenticateController::class,'login'])->name('authlogin');
+Route::get('/logout', [AuthenticateController::class,'logout'])->middleware('auth')->name('logout');

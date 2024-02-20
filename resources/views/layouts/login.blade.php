@@ -9,7 +9,7 @@
 <body>
     
     <div class="container mx-auto">
-        @include('component.auth.form')
+        @yield('form')
     </div>
 
 </body>

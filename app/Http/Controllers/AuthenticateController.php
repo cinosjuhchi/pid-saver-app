@@ -9,7 +9,11 @@ class AuthenticateController extends Controller
 {
     function index() 
     {
-        return view();
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
+
+        return view('login.index');
     }
 
     function login(Request $request) 
@@ -27,15 +31,26 @@ class AuthenticateController extends Controller
             'password'=> $request->password,
         ];
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($infologin)) {
             $request->session()->regenerate();
  
-            // return redirect()->intended('dashboard');
+            return redirect()->route('dashboard');
         }
  
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            'username' => 'The provided credentials do not match our records.',
+        ])->onlyInput('username');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/autentikasi');
     }
-}
+
+    }
