@@ -3,24 +3,23 @@
       class="absolute text-white text-4xl top-5 left-4 cursor-pointer"
       onclick="openSidebar()"
     >
-      <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+      <i class="bi bi-filter-left px-2 bg-birumuda rounded-md"></i>
     </span>
 
     <div
-      class="sidebar fixed  lg:sticky h-svh top-0 bottom-0 lg:left-0 p-2 w-[440px] overflow-y-auto text-center bg-neutral-50 transition-all duration-300 ease-in-out"
+      class="sidebar fixed  lg:sticky h-svh top-0 bottom-0 lg:left-0 py-4 px-5 md:w-1/3 sm:w-1/2 lg:w-[440px] overflow-y-auto text-center bg-neutral-50 transition-all duration-300 ease-in-out"
     >
-      <div class="text-gray-100 text-xl">
-        <div class="p-2.5 mt-1 flex items-center">
-          <h1 class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-blue-600 ml-3 text-2xl">SaverApp</h1>
+        <div class="mt-1 flex items-center justify-between mb-3">
+          <h1 class="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-birumuda to-birutua text-2xl">SaverApp</h1>
           <i
-            class="bi bi-x cursor-pointer text-indigo-950 ml-28 lg:hidden"
+            class="bi bi-x-circle cursor-pointer text-black lg:hidden"
             onclick="openSidebar()"
           ></i>
         </div>
         <div class="my-2 bg-gray-600 h-[1px]"></div>
-      </div>
+
       <div
-        class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-slate-200 text-gray focus:ring-blue-700 sm:hidden search"
+        class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-slate-100 text-gray search my-4"
       >
         <i class="bi bi-search text-sm"></i>
         <input
@@ -32,7 +31,7 @@
       
       <a href="">
       <div
-        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700 {{ $title === "beranda" ? "bg-blue-700 text-neutral-100" : "" }} hover:text-neutral-100"
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua {{ $title === "beranda" ? "bg-gradient-to-l from-birumuda to-birutua text-neutral-100" : "" }} hover:text-neutral-100"
       >
         <i class="bi bi-house-door"></i>
         <span class=" ml-4 text-dark-200 font-bold">Beranda</span>
@@ -42,7 +41,7 @@
 
       <a href="">
       <div
-        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700 hover:text-neutral-100"
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100"
       >
         <i class="bi bi-images font-bold"></i>
         <span class=" ml-4 text-dark-200 font-bold">File</span>
@@ -51,7 +50,7 @@
       
       <a href="">
       <div
-        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700 hover:text-neutral-100"
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100"
       >
         <i class="bi bi-folder font-bold"></i>
         <span class=" ml-4 text-dark-200 font-bold">Folder</span>
@@ -60,7 +59,7 @@
 
       <a href="">
       <div
-        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700 hover:text-neutral-100"
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100"
       >
         <i class="bi bi-archive font-bold"></i>
         <span class=" ml-4 text-dark-200 font-bold">Arsip</span>
@@ -69,7 +68,7 @@
       
       <a href="">
       <div
-        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700 hover:text-neutral-100"
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100"
       >
         <i class="bi bi-star font-bold"></i>
         <span class="ml-4 text-dark-200 font-bold">Favorite</span>
