@@ -1,10 +1,30 @@
 <!-- component -->
+
+  <div class="nav-mobile absolute flex gap-3 px-4 w-full py-4 lg:hidden">
     <span
-      class="absolute text-white text-4xl top-5 left-4 cursor-pointer"
+      class=" text-white text-4xl cursor-pointer"
       onclick="openSidebar()"
     >
       <i class="bi bi-filter-left px-2 bg-birumuda rounded-md"></i>
     </span>
+
+      <div
+        class="flex items-center rounded-md px-4 duration-300 cursor-pointer bg-slate-200 text-gray search w-full"
+      >
+        <i class="bi bi-search text-sm"></i>
+        <input
+          type="text"
+          placeholder="Cari di SaverApp"
+          class="text-[15px] ml-4 w-full text-gray bg-transparent focus:outline-none"
+        />
+      </div>
+      <span
+      class=" text-white text-4xl cursor-pointer flex items-center justify-center"
+      onclick="openSidebar()"
+    >
+      <i class="bi bi-plus px-2 bg-birumuda rounded-md"></i>
+    </span>        
+    </div>
 
     <div
       class="sidebar fixed  lg:sticky h-svh top-0 bottom-0 lg:left-0 py-4 px-5 md:w-1/3 sm:w-1/2 lg:w-[440px] overflow-y-auto text-center bg-neutral-50 transition-all duration-300 ease-in-out"
@@ -97,7 +117,7 @@
       const sidebar = document.querySelector(".sidebar");
       const search = document.querySelector(".search");
 
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1024) {
         // Layar mobile, sidebar akan muncul sebagai tombol
         sidebar.classList.add('hidden');        
       }else{

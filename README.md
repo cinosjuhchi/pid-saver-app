@@ -37,3 +37,13 @@ cp .env-example .env
 ```shell
 php artisan key:generate
 ```
+
+### Jalankan migrate di awal
+
+```shell
+php artisan migrate
+```
+
+```shell
+php artisan --seed
+```
