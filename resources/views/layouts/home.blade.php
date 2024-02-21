@@ -17,7 +17,7 @@
 <body class="bg-putihneut2 font-jakarta">
     <div class="flex">
     @include('component.sidebar.sidebar')
-    <div class="w-full mt-6">
+    <div class="w-full m-6">
         @yield('content')
     </div>
     </div>

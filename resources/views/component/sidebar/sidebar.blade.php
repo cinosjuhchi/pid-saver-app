@@ -20,7 +20,6 @@
       </div>
       <span
       class=" text-white text-4xl cursor-pointer flex items-center justify-center"
-      onclick="openSidebar()"
     >
       <i class="bi bi-plus px-2 bg-birumuda rounded-md"></i>
     </span>        
