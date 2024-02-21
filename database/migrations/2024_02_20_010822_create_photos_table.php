@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('filename');
+            $table->string('title', 100)->unique();
+            $table->string('slug', 255);
             $table->string('status');
             $table->integer('place_folder_id');
             $table->timestamps();
