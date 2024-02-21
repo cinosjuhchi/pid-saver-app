@@ -13,7 +13,7 @@ class Folder extends Model
     use HasFactory;
     
     protected $table = 'folders';
-    protected $fillable = ['title', 'slug','status', 'parent_folder_id'];
+    protected $guarded = ['id'];
     public function parentFolder(): BelongsTo
     {
         return $this->belongsTo(Folder::class, 'parent_folder_id');

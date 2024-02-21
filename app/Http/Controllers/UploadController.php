@@ -10,4 +10,5 @@ class UploadController extends Controller
     {
          $file = $request->file("file");
     }
+    
 }
