@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('folders', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title', 100)->unique();
+            $table->string('slug', 255);
             $table->string('status');
             $table->integer('parent_folder_id');
             $table->timestamps();

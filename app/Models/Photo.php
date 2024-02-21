@@ -11,7 +11,7 @@ class Photo extends Model
 {
     use HasFactory;
     protected $table = 'photos';
-    protected $fillable = ['title', 'filename', 'status', 'place_folder_id'];
+    protected $fillable = ['title', 'slug', 'status', 'place_folder_id'];
 
     public function folder(): BelongsTo
     {
