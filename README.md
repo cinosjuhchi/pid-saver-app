@@ -47,3 +47,13 @@ php artisan migrate
 ```shell
 php artisan --seed
 ```
+
+## Jalankan Web 
+
+```shell
+php artisan serve
+```
+
+```shell
+npm run dev
+```
