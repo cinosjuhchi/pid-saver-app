@@ -38,6 +38,10 @@ cp .env-example .env
 php artisan key:generate
 ```
 
+```shell
+php artisan storage:link
+```
+
 ### Jalankan migrate di awal
 
 ```shell
