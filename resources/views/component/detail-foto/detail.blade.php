@@ -11,28 +11,28 @@
 </style>
 
 <!-- Modal -->
-    <div class="fixed inset-0 bg-black bg-blend-overlay bg-opacity-80">
-        <div class="nav-modal flex justify-between items-center px-6 pt-4">
-            <div class="kanan flex text-white gap-3 font-bold text-2xl">
-                <button id="tutup" onclick="goBack()" class="cursor-pointer">
-                    <i class="bi bi-arrow-left"></i>
+    <div class="fixed inset-0 bg-neutral-50 bg-blend-overlay bg-opacity-80 lg:text-2xl">
+        <div class="nav-modal absolute w-full flex justify-between items-center sm:px-2 lg:px-6 pt-4">
+            <div class="kanan flex items-center text-black lg:gap-2 sm:gap-1 font-bold truncate">
+                <button id="tutup" onclick="goBack()" class="cursor-pointer hover:bg-black hover:text-white rounded-full px-3 py-2">
+                    <i class="bi bi-arrow-left text-2xl"></i>
                 </button>
-                <h1>{{ $photo->title }}</h1>
+                <h1 class="">{{ $photo->title }}</h1>
             </div>
-            <div class="kiri flex gap-4  text-white text-2xl">
-                <button class="hover:bg-white hover:text-black transition-all rounded-full px-3 py-2">
+            <div class="kiri flex lg:gap-4 sm:gap-3 text-black">
+                <button class="hover:bg-black hover:text-white transition-all rounded-full px-3 py-2 text-2xl">
                 <i class="bi bi-printer"></i>
                 </button>
 
-                <button class="hover:bg-white hover:text-black transition-all rounded-full px-3 py-2">
+                <button class="hover:bg-black hover:text-white transition-all rounded-full px-3 py-2 text-2xl">
                 <i class="bi bi-star"></i>
                 </button>
 
-                <button class="hover:bg-white hover:text-black transition-all rounded-full px-3 py-2">
+                <button class="hover:bg-black hover:text-white transition-all rounded-full px-3 py-2 text-2xl">
                 <i class="bi bi-download"></i>
                 </button>
 
-                <button class="hover:bg-white hover:text-black transition-all rounded-full px-3 py-2">
+                <button class="hover:bg-black hover:text-white transition-all rounded-full px-3 py-2 text-2xl">
                 <i class="bi bi-info-lg"></i>
                 </button>
             </div>
@@ -47,14 +47,14 @@
     
 
    <!-- JavaScript -->
-<script>    
-    const modalImage = document.getElementById('modal-image');
+    <script>    
+        const modalImage = document.getElementById('modal-image');
 
-    // Hapus transformasi saat gambar modal diklik
-    modalImage.addEventListener('click', function () {
-        modalImage.classList.toggle('zoomed'); // Menggunakan toggle untuk memperbolehkan zoom in dan zoom out
-    });
-    function goBack() {
-        window.history.back();
-    }
-</script>
+        // Hapus transformasi saat gambar modal diklik
+        modalImage.addEventListener('click', function () {
+            modalImage.classList.toggle('zoomed'); // Menggunakan toggle untuk memperbolehkan zoom in dan zoom out
+        });
+        function goBack() {
+            window.history.back();
+        }
+    </script>

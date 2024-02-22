@@ -24,14 +24,14 @@
         }
     </style>
 </head>
-<body class="bg-putihneut2 font-jakarta overflow-hidden">
+<body class="bg-putihneut2 font-jakarta">
     <div class="flex">
-    <div class="sticky top-0 h-screen bg-gray-200 overflow-y-auto">
-    @include('component.sidebar.sidebar')
+    <div class="lg:sticky lg:top-0 lg:h-screen lg:w-auto absolute bg-putihneut2 w-full lg:overflow-y-auto">
+         @include('component.sidebar.sidebar')
     </div>
     <div class="flex-1 overflow-y-scroll m-6 main-content"">
         <div class="nav sticky top-0">
-            @include('component.search-home')
+            @include('component.navbar.navbar-home')
         </div>
         @yield('content')
     </div>

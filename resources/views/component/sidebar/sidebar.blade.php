@@ -1,6 +1,6 @@
 <!-- component -->
 
-  <div class="nav-mobile absolute flex gap-3 px-4 w-full py-4 lg:hidden">
+  <div class="nav-mobile flex gap-3 px-4 w-full py-4 lg:hidden">
     <span
       class=" text-white text-4xl cursor-pointer"
       onclick="openSidebar()"
@@ -23,7 +23,7 @@
     >
       <i class="bi bi-plus px-2 bg-birumuda rounded-md"></i>
     </span>        
-    </div>
+  </div>
 
     <div
       class="sidebar fixed  lg:sticky h-svh top-0 bottom-0 lg:left-0 py-4 px-5 md:w-1/3 sm:w-1/2 lg:w-[340px] overflow-y-auto text-center bg-neutral-50 transition-all duration-300 ease-in-out"
@@ -63,7 +63,7 @@
         class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100"
       >
         <i class="bi bi-images font-bold"></i>
-        <span class=" ml-4 text-dark-200 font-bold">File</span>
+        <span class=" ml-4 text-dark-200 font-bold">Foto</span>
       </div>
       </a>
       
@@ -90,7 +90,7 @@
         class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100"
       >
         <i class="bi bi-star font-bold"></i>
-        <span class="ml-4 text-dark-200 font-bold">Favorite</span>
+        <span class="ml-4 text-dark-200 font-bold">Favorit</span>
       </div>
       </a>
      

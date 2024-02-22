@@ -5,7 +5,7 @@
 
         <div class="sm flex gap-2 ">
         <button class="px-10 py-1 rounded-md font-bold bg-white hover:bg-birumuda hover:text-white transition text-sm sm:px-8">
-            File
+            Foto
         </button>
 
         <button class="px-10 py-1 rounded-md font-bold bg-white hover:bg-birumuda hover:text-white transition text-sm sm:px-8">
