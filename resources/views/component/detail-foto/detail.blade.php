@@ -14,12 +14,10 @@
     <div class="fixed inset-0 bg-black bg-blend-overlay bg-opacity-80">
         <div class="nav-modal flex justify-between items-center px-6 pt-4">
             <div class="kanan flex text-white gap-3 font-bold text-2xl">
-                <a href="javascript:history.back()">
-                <button id="tutup" class="cursor-pointer">
+                <button id="tutup" onclick="goBack()" class="cursor-pointer">
                     <i class="bi bi-arrow-left"></i>
                 </button>
-                </a>
-                <h1>Nama File</h1>
+                <h1>{{ $photo->title }}</h1>
             </div>
             <div class="kiri flex gap-4  text-white text-2xl">
                 <button class="hover:bg-white hover:text-black transition-all rounded-full px-3 py-2">
@@ -41,7 +39,7 @@
         </div>
         <div class="flex items-end justify-center lg:h-screen">
             <div class="max-w-lg mx-auto">
-                <img id="modal-image" src="{{ asset('resources/image/fotojdn.png') }}" alt="Gambar" class="zoomable-image rounded-md h-max w-max scale-50 object-cover">
+                <img id="modal-image" src="{{ asset('storage/' . $photo->image_location) }}" alt="Gambar" class="zoomable-image rounded-md h-max w-max scale-50 object-cover">
             </div>
         </div>
     </div>
@@ -54,4 +52,7 @@
     modalImage.addEventListener('click', function () {
         modalImage.classList.toggle('zoomed'); // Menggunakan toggle untuk memperbolehkan zoom in dan zoom out
     });
+    function goBack() {
+        window.history.back();
+    }
 </script>
