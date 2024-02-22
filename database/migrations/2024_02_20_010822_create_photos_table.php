@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100)->unique();
+            $table->string('image_location');
             $table->string('slug', 255);
             $table->string('status');
             $table->integer('place_folder_id');
