@@ -34,7 +34,6 @@
             @include('component.search-home')
         </div>
         @yield('content')
-        @include('component.button-dropdown.button')
     </div>
     </div>
 </body>
