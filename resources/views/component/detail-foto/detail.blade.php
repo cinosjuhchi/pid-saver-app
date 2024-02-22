@@ -39,7 +39,7 @@
         </div>
         <div class="flex items-center justify-center h-screen">
             <div class="max-w-lg mx-auto">
-                <img id="modal-image" src="{{ asset('storage/' . $photo->image_location) }}" alt="Gambar" class="zoomable-image rounded-md h-max w-max scale-50 object-cover">
+                <img id="modal-image" src="{{ asset('storage/' . $photo->image_location) }}" alt="Gambar" class="zoomable-image rounded-md h-max w-max scale-100 object-cover">
             </div>
         </div>
     </div>
