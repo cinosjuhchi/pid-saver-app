@@ -29,4 +29,4 @@ Route::get('/autentikasi', [AuthenticateController::class, 'index'])->name('logi
 Route::post('login', [AuthenticateController::class,'login'])->name('authlogin');
 Route::get('/logout', [AuthenticateController::class,'logout'])->middleware('auth')->name('logout');
 Route::post('upload-photo', [UploadController::class,'upload'])->middleware('auth')->name('upload-photo');
-Route::get('/preview', [PhotoController::class, 'show'])->middleware('auth')->name('preview');
+Route::get('/preview/{slug}', [PhotoController::class, 'show'])->middleware('auth')->name('preview');
