@@ -37,7 +37,7 @@
                 </button>
             </div>
         </div>
-        <div class="flex items-end justify-center lg:h-screen">
+        <div class="flex items-center justify-center h-screen">
             <div class="max-w-lg mx-auto">
                 <img id="modal-image" src="{{ asset('storage/' . $photo->image_location) }}" alt="Gambar" class="zoomable-image rounded-md h-max w-max scale-50 object-cover">
             </div>
