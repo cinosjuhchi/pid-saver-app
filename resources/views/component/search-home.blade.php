@@ -34,8 +34,9 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <form id="uploadForm" enctype="multipart/form-data">
-                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*" class="border border-gray-300 p-2 mb-4">
+                <form id="uploadForm" action="{{ route('upload-photo') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" id="imageUpload" name="image_location" class="border border-gray-300 p-2 mb-4">
                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Upload</button>
                 </form>
             </div>
@@ -77,16 +78,5 @@
     // Prevent modal from closing when clicking inside it
     modal.addEventListener('click', (e) => {
         e.stopPropagation();
-    });
-
-    // Handle form submission
-    const uploadForm = document.getElementById('uploadForm');
-    uploadForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(uploadForm);
-        // Perform AJAX request to handle form submission (you can replace this with your own implementation)
-        console.log('Submitting form with data:', formData);
-        // After submitting, you can close the modal
-        closeModal();
     });
 </script>
