@@ -1,15 +1,3 @@
-<style>
-        .zoomable-image {
-            cursor: zoom-in;
-            transition: transform 0.2s;
-        }
-
-        .zoomable-image.zoomed {
-            cursor: zoom-out;
-            transform: scale(1.5);
-        }
-</style>
-
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
 
         <a href="{{ route('preview') }}" id="lihat-detail" class="cursor-pointer group">
@@ -26,8 +14,4 @@
                 </div>
             </div>
         </a>
-
-       
-    
-
 </div>
