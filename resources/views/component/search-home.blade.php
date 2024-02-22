@@ -8,10 +8,7 @@
         <input class="outline-none w-full bg-slate-100 rounded-md bg-transparent group/search " type="text" name="" placeholder="Cari di SaverApp" id="">
     </div>
     <div class="w-auto">
-        <button class="text-white px-6 py-2 font-bold text-center rounded-md bg-birumuda" id="openModal">
-            <i class="bi bi-plus-lg text-base text-white"></i>
-            Buat
-        </button>
+        @include('component.button-dropdown.button')
     </div>
 </div>
 </div>

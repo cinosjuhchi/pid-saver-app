@@ -26,7 +26,7 @@
     </div>
 
     <div
-      class="sidebar fixed  lg:sticky h-svh top-0 bottom-0 lg:left-0 py-4 px-5 md:w-1/3 sm:w-1/2 lg:w-[440px] overflow-y-auto text-center bg-neutral-50 transition-all duration-300 ease-in-out"
+      class="sidebar fixed  lg:sticky h-svh top-0 bottom-0 lg:left-0 py-4 px-5 md:w-1/3 sm:w-1/2 lg:w-[340px] overflow-y-auto text-center bg-neutral-50 transition-all duration-300 ease-in-out"
     >
         <div class="mt-1 flex items-center justify-between mb-3">
           <h1 class="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-birumuda to-birutua text-2xl">SaverApp</h1>

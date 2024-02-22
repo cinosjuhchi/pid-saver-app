@@ -12,13 +12,29 @@
     @vite('resources/css/app.css')
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+        /* Menyembunyikan scrollbar */
+        ::-webkit-scrollbar {
+            width: 0;  /* Width of the entire scrollbar */
+            height: 0; /* Height of the entire scrollbar */
+        }
+        /* Optional: menambahkan style lain pada track scrollbar */
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Make the scrollbar transparent */
+        }
     </style>
 </head>
-<body class="bg-putihneut2 font-jakarta">
+<body class="bg-putihneut2 font-jakarta overflow-hidden">
     <div class="flex">
+    <div class="sticky top-0 h-screen bg-gray-200 overflow-y-auto">
     @include('component.sidebar.sidebar')
-    <div class="w-full m-6">
+    </div>
+    <div class="flex-1 overflow-y-scroll m-6 main-content"">
+        <div class="nav sticky top-0">
+            @include('component.search-home')
+        </div>
         @yield('content')
+        @include('component.button-dropdown.button')
     </div>
     </div>
 </body>
