@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Folder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +21,12 @@ class DatabaseSeeder extends Seeder
             'username' => 'cino123',
             'password'=> bcrypt('123'),
         ]);
+        
+        Folder::create([
+            'title' => 'parent',
+            'slug'=> 'parent',
+            'status' => 'active',
+            'parent_folder_id' => null,
+            ]);
     }
 }

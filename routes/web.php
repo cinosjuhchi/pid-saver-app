@@ -4,6 +4,7 @@ use App\Models\Photo;
 use GuzzleHttp\Psr7\UploadedFile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\FolderController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\DashboardController;
@@ -30,3 +31,4 @@ Route::post('login', [AuthenticateController::class,'login'])->name('authlogin')
 Route::get('/logout', [AuthenticateController::class,'logout'])->middleware('auth')->name('logout');
 Route::post('upload-photo', [UploadController::class,'upload'])->middleware('auth')->name('upload-photo');
 Route::get('/preview/{slug}', [PhotoController::class, 'show'])->middleware('auth')->name('preview');
+Route::post('add-folder', [FolderController::class, 'store'])->middleware('auth')->name('add-folder');

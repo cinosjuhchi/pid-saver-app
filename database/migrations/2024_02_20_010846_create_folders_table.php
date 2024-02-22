@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 100)->unique();
             $table->string('slug', 255);
             $table->string('status');
-            $table->integer('parent_folder_id');
+            $table->integer('parent_folder_id')->nullable();
             $table->timestamps();
         });
     }

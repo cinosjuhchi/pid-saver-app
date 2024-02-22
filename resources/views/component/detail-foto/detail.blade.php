@@ -44,6 +44,8 @@
         </div>
     </div>
 
+    
+
    <!-- JavaScript -->
 <script>    
     const modalImage = document.getElementById('modal-image');

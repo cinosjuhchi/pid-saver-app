@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 
 class FolderController extends Controller
 {
+
     public function store(Request $request)
 {
     $request->validate([
@@ -17,6 +18,15 @@ class FolderController extends Controller
 
     $parent = $request->parent_folder_id ?? 1; // Using null coalescing operator for simplicity
     $title = $request->title;
+    $counter = 1;
+    $newName = $title;
+
+        // Cek apakah file dengan nama yang sama sudah ada
+    while (Folder::where('title', $newName)->exists()) {
+        $newName = $title . '(' . $counter . ')';
+        $counter++;
+    }
+    $title = $newName;
     
     // Call the createSlug method directly on Str class, passing the title
     $slug = Str::slug($title);
@@ -27,6 +37,8 @@ class FolderController extends Controller
     $folder->status = "active";
     $folder->parent_folder_id = $parent;
     $folder->save();
+    return redirect()->route("dashboard")->with("success","berhasil");
+
 }
 
     protected function createSlug($title)
