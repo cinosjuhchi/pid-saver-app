@@ -1,11 +1,12 @@
-<div class="relative z-10" id="dropdownButton">
+<div class="" id="dropdownButton">
     <button class="hover:bg-white rounded-full transition" onclick="toggleDropdownDots()">
         <i class="bi bi-three-dots-vertical text-xl"></i>
     </button>
 
     <div class="rounded border-gray-300 bg-white shadow-md mt-1 p-2 absolute text-sm font-semibold hidden transition-all" id="dropdown">
-        <button class="hover:bg-slate-200 px-3 py-2 rounded-sm flex gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-folder"></i>Tambahkan Folder</button>
-        <button class="hover:bg-slate-200 px-3 py-2 rounded-sm flex gap-2 w-full cursor-pointer" id="openModal"><i class="bi bi-image"></i>Upload Foto</button>
+        <button class="hover:bg-slate-200 px-3 py-2 rounded-sm flex gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-folder"></i>Download</button>
+        <button class="hover:bg-slate-200 px-3 py-2 rounded-sm flex gap-2 w-full cursor-pointer" id="openModal"><i class="bi bi-image"></i>Tambahkan ke Favorit</button>
+        <button class="hover:bg-slate-200 px-3 py-2 rounded-sm flex gap-2 w-full cursor-pointer" id="openModal"><i class="bi bi-image"></i>Hapus</button>
     </div>
 </div>
 
