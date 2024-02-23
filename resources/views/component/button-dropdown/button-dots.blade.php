@@ -1,4 +1,4 @@
-<div class="" id="dropdownButton">
+<div class="" id="dropdownDots">
     <button class="hover:bg-white rounded-full transition" onclick="toggleDropdownDots()">
         <i class="bi bi-three-dots-vertical text-xl"></i>
     </button>
@@ -20,7 +20,7 @@
 <!-- JS Button Dropdown -->
 <script>
     function toggleDropdownDots() {
-        let dropdown = document.querySelector('#dropdownButton #dropdown');
+        let dropdown = document.querySelector('#dropdownDots #dropdown');
         dropdown.classList.toggle("hidden");
 
         if (!dropdown.classList.contains("hidden")) {
@@ -29,7 +29,7 @@
 
             // Get bounding rectangle of dropdown and button
             let dropdownRect = dropdown.getBoundingClientRect();
-            let buttonRect = document.getElementById('dropdownButton').getBoundingClientRect();
+            let buttonRect = document.getElementById('dropdownDots').getBoundingClientRect();
 
             // Check if there is enough space on the right side of the button
             let spaceRight = window.innerWidth - buttonRect.right;
