@@ -6,7 +6,7 @@
 
     @foreach ($photos as $photo)
         
-        <a href="{{ route('preview', ['slug' => $photo->slug]) }}" id="lihat-detail" class="cursor-pointer group">
+        <a href="{{ route('preview', ['slug' => $photo->slug]) }}" id="lihat-detail" class="cursor-pointer group    ">
             <div class="card-file bg-white rounded-md p-3 group-hover:bg-gray-200 transition-all">
                 <img src="{{ asset('storage/' . $photo->image_location) }}" alt="" class="rounded-md h-60 object-cover w-full">
                 <div class="title flex items-center justify-between mt-3">
