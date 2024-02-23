@@ -1,4 +1,4 @@
-<div class="filter lg:mt-2 relative mt-12">
+<div class="filter lg:mt-2 mt-12">
     <h1 class="font-bold">Filter</h1>
 
     <div class="flex gap-2 mt-1 flex-wrap">
