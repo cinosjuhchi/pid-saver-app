@@ -44,23 +44,6 @@
     @endforeach
     @endif()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
-    
-        
-        
 </div>
 @endsection
