@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-    @include('component.filter.filter-file-folder')
+@include('component.filter.filter-file-folder')
     
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
 
