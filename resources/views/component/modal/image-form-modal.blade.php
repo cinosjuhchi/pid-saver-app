@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div id="imageModal" class="modal hidden fixed inset-0 overflow-y-auto flex items-center justify-center h-screen">
+<div id="imageModal" class="modal hidden fixed inset-0 overflow-y-auto items-center justify-center h-screen">
     <div class="pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
         <!-- Modal Content -->
