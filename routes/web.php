@@ -9,6 +9,7 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\DownloadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,5 @@ Route::get('/logout', [AuthenticateController::class,'logout'])->middleware('aut
 Route::post('upload-photo', [UploadController::class,'upload'])->middleware('auth')->name('upload-photo');
 Route::get('/preview/{slug}', [PhotoController::class, 'show'])->middleware('auth')->name('preview');
 Route::post('add-folder', [FolderController::class, 'store'])->middleware('auth')->name('add-folder');
+Route::get('/download/{slug}', [DownloadController::class, 'downloadImage'])->middleware('auth')->name('download-image');
+Route::get('/folders/{slug}', [FolderController::class,'show'])->middleware('auth')->name('folder-show');

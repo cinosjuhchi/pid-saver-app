@@ -24,7 +24,7 @@
     @endforeach
         @foreach ($folders as $folder)
             
-        <a href="" class="cursor-pointer group">
+    <a href="{{ route('folder-show', ['slug' => $folder->slug]) }}" class="cursor-pointer group">
             <div class="card-folder bg-white rounded-md p-3 group-hover:bg-neutral-200 transition-all">
                 <img src="{{ asset('resources/image/folder_img.png') }}" alt="" class="rounded-sm h-60 object-contain scale-75 w-full">
                 <div class="title flex items-center justify-between mt-3">

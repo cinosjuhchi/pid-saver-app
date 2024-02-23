@@ -10,13 +10,22 @@ use Illuminate\Routing\Controller;
 class FolderController extends Controller
 {
 
+    public function show($slug)
+    {
+        $folder = Folder::where('slug', $slug)->firstOrFail();
+        $subFolders = $folder->subFolders;
+        $photos = $folder->photos;
+        $title = $folder->title;
+
+        return view('folder', compact('subFolders','photos','folder', 'title'));
+    }
+
     public function store(Request $request)
 {
     $request->validate([
         'title' => ['required', 'max:100', 'unique:folders'],
     ]);
-
-    $parent = $request->parent_folder_id ?? 1; // Using null coalescing operator for simplicity
+// Using null coalescing operator for simplicity
     $title = $request->title;
     $counter = 1;
     $newName = $title;
@@ -27,6 +36,7 @@ class FolderController extends Controller
         $counter++;
     }
     $title = $newName;
+    $parent = $request->parent_folder_id;
     
     // Call the createSlug method directly on Str class, passing the title
     $slug = Str::slug($title);
@@ -37,7 +47,7 @@ class FolderController extends Controller
     $folder->status = "active";
     $folder->parent_folder_id = $parent;
     $folder->save();
-    return redirect()->route("dashboard")->with("success","berhasil");
+    return redirect()->back()->with("success", "berhasil");
 
 }
 

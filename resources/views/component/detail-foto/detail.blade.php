@@ -28,9 +28,9 @@
                 <i class="bi bi-star"></i>
                 </button>
 
-                <button class="hover:bg-black hover:text-white transition-all rounded-full px-3 py-2 text-2xl">
+                <a class="hover:bg-black hover:text-white transition-all rounded-full px-3 py-2 text-2xl" href="{{ route('download-image', ['slug' => $photo->slug]) }}">
                 <i class="bi bi-download"></i>
-                </button>
+                </a>
 
                 <button class="hover:bg-black hover:text-white transition-all rounded-full px-3 py-2 text-2xl">
                 <i class="bi bi-info-lg"></i>
