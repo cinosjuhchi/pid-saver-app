@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use ZipArchive;
 use App\Models\Folder;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -57,5 +58,39 @@ class FolderController extends Controller
         $count = Folder::where('slug', 'like', $slug . '%')->count();
 
         return $count > 0 ? "{$slug}-" . ($count + 1) : $slug;
+    }
+
+    public function zipFolder($folderId)
+    {
+        $folder = Folder::findOrFail($folderId);
+
+        $zipFileName = "folder_{$folderId}_contents.zip";
+        $zipFilePath = storage_path("app/public/{$zipFileName}");
+
+        $zip = new ZipArchive();
+
+        if ($zip->open($zipFilePath, ZipArchive::CREATE) === true) {
+            $this->addFolderToZip($folder, $zip);
+            $zip->close();
+
+            return response()->download($zipFilePath, $zipFileName)->deleteFileAfterSend();
+        }
+
+        abort(500, 'Failed to create zip file.');
+    }
+
+    protected function addFolderToZip($folder, $zip, $parentPath = '')
+    {
+        $photos = $folder->photos;
+        foreach ($photos as $photo) {
+            $photoPath = storage_path("app/public/{$photo->image_location}");
+            $relativePath = $parentPath . $photo->title . '.jpg';
+            $zip->addFile($photoPath, $relativePath);
+        }
+
+        $subFolders = $folder->subFolders;
+        foreach ($subFolders as $subFolder) {
+            $this->addFolderToZip($subFolder, $zip, $parentPath . $subFolder->title . '/');
+        }
     }
 }

@@ -26,14 +26,14 @@
 </head>
 <body class="bg-putihneut2 font-jakarta">
     <div class="flex">
-    <div class="lg:sticky z-50 lg:top-0 lg:h-screen lg:w-auto absolute bg-putihneut2 w-full lg:overflow-y-auto">
+    <div class="lg:sticky lg:top-0 lg:h-screen lg:w-auto absolute bg-putihneut2 w-full lg:overflow-y-auto">
          @include('component.sidebar.sidebar')
     </div>
-    <div class="flex-1 overflow-y-scroll m-6 main-content">
+    <div class="flex-1 overflow-y-scroll m-6 main-content"">
         <div class="nav sticky top-0">
             @include('component.navbar.navbar-home')
-            @yield('content')   
         </div>
+        @yield('content')
     </div>
     </div>
 </body>
