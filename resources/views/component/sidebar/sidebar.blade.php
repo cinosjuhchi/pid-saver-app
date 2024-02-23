@@ -105,24 +105,30 @@
     </div>
 
     <script type="text/javascript">
-
-      function openSidebar() {
+    function openSidebar() {
         document.querySelector(".sidebar").classList.toggle("hidden");
-      }
+    }
 
+    function toggleSidebar() {
+        const sidebar = document.querySelector(".sidebar");
+        const search = document.querySelector(".search");
 
+        if (window.innerWidth < 1024) {
+            // Layar mobile, sidebar akan muncul sebagai tombol
+            sidebar.classList.add('hidden');
+        } else {
+            sidebar.classList.remove('hidden');
+        }
+    }
 
-      function toggleSidebar() {
-      const sidebar = document.querySelector(".sidebar");
-      const search = document.querySelector(".search");
-
-      if (window.innerWidth < 1024) {
-        // Layar mobile, sidebar akan muncul sebagai tombol
-        sidebar.classList.add('hidden');        
-      }else{
-        sidebar.classList.remove('hidden');
-      }
-
+    function closeSidebarOnOutsideClick(event) {
+        if (window.innerWidth < 1024) {
+            const sidebar = document.querySelector(".sidebar");
+            const navMobileButton = document.querySelector(".nav-mobile");
+            if (!sidebar.contains(event.target) && !navMobileButton.contains(event.target)) {
+                sidebar.classList.add("hidden");
+            }
+        }
     }
 
     // Panggil fungsi toggleSidebar() saat halaman dimuat
@@ -131,5 +137,7 @@
     // Tambahkan event listener untuk memantau perubahan ukuran layar
     window.addEventListener("resize", toggleSidebar);
 
+    // Tambahkan event listener untuk menutup sidebar saat pengguna mengklik di luar sidebar
+    document.addEventListener("click", closeSidebarOnOutsideClick);
+</script>
 
-    </script>
