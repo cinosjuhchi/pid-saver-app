@@ -25,7 +25,7 @@
 <!-- JavaScript -->
 <script>
     function toggleDropdown(id) {
-        let dropdown = document.getElementById(id);
+        let dropdownFilter = document.getElementById(id);
         let allDropdowns = document.querySelectorAll('.relative > .rounded');
         
         // Menutup dropdown lain
@@ -35,20 +35,20 @@
             }
         });
         
-        dropdown.classList.toggle('hidden');
+        dropdownFilter.classList.toggle('hidden');
         
-        if (!dropdown.classList.contains('hidden')) {
-            dropdown.style.width = 'max-content';
-            let dropdownRect = dropdown.getBoundingClientRect();
-            let buttonRect = dropdown.parentElement.getBoundingClientRect();
+        if (!dropdownFilter.classList.contains('hidden')) {
+            dropdownFilter.style.width = 'max-content';
+            let dropdownRect = dropdownFilter.getBoundingClientRect();
+            let buttonRect = dropdownFilter.parentElement.getBoundingClientRect();
             let spaceRight = window.innerWidth - buttonRect.right;
             let spaceLeft = buttonRect.left;
             if (spaceRight < dropdownRect.width && spaceLeft >= dropdownRect.width) {
-                dropdown.classList.remove('left-0');
-                dropdown.classList.add('right-0');
+                dropdownFilter.classList.remove('left-0');
+                dropdownFilter.classList.add('right-0');
             } else {
-                dropdown.classList.remove('right-0');
-                dropdown.classList.add('left-0');
+                dropdownFilter.classList.remove('right-0');
+                dropdownFilter.classList.add('left-0');
             }
         }
     }
