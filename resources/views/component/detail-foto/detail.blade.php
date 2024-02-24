@@ -11,7 +11,7 @@
 </style>
 
 <!-- Modal -->
-    <div class="fixed inset-0 bg-neutral-50 bg-blend-overlay bg-opacity-80 lg:text-2xl">
+    <div class="fixed inset-0 bg-neutral-50 bg-blend-overlay lg:text-2xl">
         <div class="nav-modal absolute w-full flex justify-between items-center sm:px-2 lg:px-6 pt-4">
             <div class="kanan flex items-center text-black lg:gap-2 sm:gap-1 font-bold truncate">
                 <button id="tutup" onclick="goBack()" class="cursor-pointer hover:bg-black hover:text-white rounded-full px-3 py-2">

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Folder extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'folders';
     protected $guarded = ['id'];
     public function parentFolder(): BelongsTo

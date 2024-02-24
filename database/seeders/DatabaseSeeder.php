@@ -19,12 +19,12 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'username' => 'cino123',
-            'password'=> bcrypt('123'),
+            'password' => bcrypt('123'),
         ]);
-        
+
         Folder::create([
             'title' => 'parent',
-            'slug'=> 'parent',
+            'slug' => 'parent',
             'status' => 'active',
             'parent_folder_id' => null,
             ]);

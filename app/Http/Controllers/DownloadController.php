@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Storage;
 class DownloadController extends Controller
 {
     //
-    public function downloadImage($slug){
+    public function downloadImage($slug)
+    {
         $file = Photo::where('slug', $slug)->first();
         $nameFile =  $file->image_location;
         $title = $file->title;

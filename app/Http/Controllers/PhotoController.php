@@ -10,7 +10,7 @@ class PhotoController extends Controller
 {
     public function show($slug)
     {
-        $title ='Preview';
+        $title = 'Preview';
         $id = $slug;
         $photo = Photo::where('slug', $id)->first();
         return view('preview', compact('title', 'photo'));

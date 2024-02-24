@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticateController extends Controller
 {
-    function index() 
+    public function index()
     {
         if (Auth::check()) {
             return redirect()->route('dashboard');
@@ -16,27 +16,27 @@ class AuthenticateController extends Controller
         return view('login.index');
     }
 
-    function login(Request $request) 
+    public function login(Request $request)
     {
         $request->validate([
             'username' => 'required',
-            'password'=> 'required',
+            'password' => 'required',
         ], [
             'username.required' => 'Username wajib diisi',
-            'password.required'=> 'Password wajib diisi',
+            'password.required' => 'Password wajib diisi',
         ]);
 
         $infologin = [
-            'username'=> $request->username,
-            'password'=> $request->password,
+            'username' => $request->username,
+            'password' => $request->password,
         ];
 
         if (Auth::attempt($infologin)) {
             $request->session()->regenerate();
- 
+
             return redirect()->route('dashboard');
         }
- 
+
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',
         ])->onlyInput('username');
@@ -45,12 +45,12 @@ class AuthenticateController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
- 
+
         $request->session()->invalidate();
-    
+
         $request->session()->regenerateToken();
-    
+
         return redirect('/autentikasi');
     }
 
-    }
+}

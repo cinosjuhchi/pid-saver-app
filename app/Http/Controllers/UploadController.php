@@ -33,7 +33,7 @@ class UploadController extends Controller
         $folder = $request->parent_folder_id ?? 1;
         $slug = Str::slug($title);
         $status = "active";
-        $photo = new Photo;
+        $photo = new Photo();
         $photo->title = $title;
         $photo->image_location = $validateData['image_location'];
         $photo->place_folder_id = $folder;
@@ -41,10 +41,10 @@ class UploadController extends Controller
         $photo->status = $status;
         $photo->save();
 
-        return redirect()->route("dashboard")->with("success","berhasil");
+        return redirect()->route("dashboard")->with("success", "berhasil");
 
-        
+
 
     }
-    
+
 }

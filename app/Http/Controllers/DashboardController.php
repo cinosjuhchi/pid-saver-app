@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller;
 
 class DashboardController extends Controller
 {
-    public function index() 
+    public function index()
     {
         $title = "beranda";
         $photos = Photo::where("place_folder_id", 1)->get();
@@ -17,6 +17,6 @@ class DashboardController extends Controller
                     ->where('id', '!=', 1)
                     ->get();
         return view('home', compact('title', 'photos', 'folders'));
-        
+
     }
 }

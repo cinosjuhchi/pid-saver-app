@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'username' => $this->faker->userName(),
             'password' => static::$password ??= Hash::make('password'),
-        
+
         ];
     }
 

@@ -16,8 +16,8 @@
 @include("component.modal.image-form-modal")
 @include("component.modal.folder-form-modal")
 
-<!-- JS Button Dropdown -->
 <script>
+    // Function to toggle dropdown
     function toggleDropdownUpload() {
         let dropdown = document.querySelector('#dropdownButton #dropdown');
         dropdown.classList.toggle("hidden");
@@ -46,4 +46,16 @@
             }
         }
     }
+
+    // Add click event listener to document
+    document.addEventListener('click', function(event) {
+        // Check if the clicked element is part of the dropdown or the dropdown button
+        let isDropdown = event.target.closest('#dropdownButton') || event.target.closest('#dropdownButton #dropdown');
+
+        // If the clicked element is not part of the dropdown, close the dropdown
+        if (!isDropdown) {
+            let dropdown = document.querySelector('#dropdownButton #dropdown');
+            dropdown.classList.add("hidden");
+        }
+    });
 </script>
