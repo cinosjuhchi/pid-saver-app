@@ -1,14 +1,10 @@
-<!-- Modal -->
-<div id="imageModal" class="modal hidden fixed inset-0 overflow-y-auto items-center justify-center h-screen">
-    <div class="pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
-        <!-- Modal Content -->
-        <div class="modal-content bg-white rounded-lg shadow-lg p-4 mx-2 sm:mx-auto">
-
+<div id="imageModal" class="modal hidden fixed bg-slate-600 bg-opacity-50 h-screen inset-0 z-50 ">
+    <div class="h-screen flex flex-1 justify-center items-center text-center">
+        <div class="modal-content bg-white py-4 px-6 w-1/3 items-center rounded-sm relative">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h3 class="text-lg font-semibold">Upload Image</h3>
-                <button id="closeModal" class="modal-close absolute top-0">
+                <h3 class="text-lg font-semibold mb-4">Upload Foto</h3>
+                <button id="closeModal" class="modal-close absolute -top-3 -right-3">
                     <i class="bi bi-x-lg bg-black text-white px-1 text-2xl rounded-full"></i>
                 </button>
             </div>
@@ -17,12 +13,11 @@
             <div class="modal-body">
                 <form id="uploadForm" action="{{ route('upload-photo') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" id="imageUpload" name="image_location" class="border p-1 border-gray-300 mb-4 rounded-md">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Upload</button>
+                    <input type="file" id="imageUpload" name="image_location" class="border p-1 border-gray-300 mb-4 rounded-md w-full placeholder:text-sm">
+                    <button type="submit" class="bg-birumuda hover:bg-birutua transition-all text-white font-bold py-2 px-4 rounded">Upload</button>
                 </form>
             </div>
-
-        </div>
+            </div>
     </div>
 </div>
 
