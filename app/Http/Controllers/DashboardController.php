@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $title = "beranda";
+        $title = "Beranda";
         $photos = Photo::where("place_folder_id", 1)->get();
         $folders = Folder::where('parent_folder_id', 1)
                     ->where('id', '!=', 1)

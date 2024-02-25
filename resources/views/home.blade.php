@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
-@include('component.filter.filter-file-folder')
-    
+    @include('component.filter.filter-file-folder')
+
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
 
     @foreach ($photos as $photo)
@@ -12,7 +12,7 @@
                     <a href="{{ route('preview', ['slug' => $photo->slug]) }}" class="cursor-pointer flex flex-col flex-grow">
                         <img src="{{ asset('storage/' . $photo->image_location) }}" alt="" class="rounded-md h-60 object-cover w-full">
                         <div class="headline flex items-center justify-between mt-3">
-                            <div class="title truncate overflow-hidden flex-grow max-w-[10rem]">
+                            <div class="title truncate overflow-hidden flex-grow max-w-[15rem]">
                                 <h1 class="font-bold text-sm">{{ $photo->title }}</h1>
                                 <p class="text-xs text-gray-400">{{ $photo->created_at->diffForHumans() }}</p>
                             </div>
@@ -21,6 +21,7 @@
                                 <!-- Example dropdown content: -->
                                 <div class="rounded border-gray-300 bg-white shadow-md p-2 text-sm transition-all">
                                     <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                                
+                                    <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-pencil-square"></i>Ganti nama</a>                                
                                     <a href="{{ route('download-image', ['slug' => $photo->slug]) }}" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-download"></i>Download</a>                                
                                     <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-red-500" id="openFolder"><i class="bi bi-trash"></i>Hapus</a>                                
                                 </div>

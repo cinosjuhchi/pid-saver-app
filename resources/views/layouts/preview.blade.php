@@ -13,15 +13,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-        /* Menyembunyikan scrollbar */
-        ::-webkit-scrollbar {
-            width: 0;  /* Width of the entire scrollbar */
-            height: 0; /* Height of the entire scrollbar */
-        }
-        /* Optional: menambahkan style lain pada track scrollbar */
-        ::-webkit-scrollbar-track {
-            background: transparent; /* Make the scrollbar transparent */
-        }
+        
     </style>
 </head>
 <body class="bg-putihneut2 font-jakarta overflow-hidden">
