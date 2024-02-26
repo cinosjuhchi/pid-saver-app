@@ -40,8 +40,11 @@ class UploadController extends Controller
         $photo->slug = $slug;
         $photo->status = $status;
         $photo->save();
+        
+        return back()->with('success', 'Gambar berhasil diunggah');
 
-        return redirect()->route("dashboard")->with("success", "berhasil");
+
+        
 
 
 
