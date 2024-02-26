@@ -26,10 +26,10 @@
 </head>
 <body class="bg-putihneut2 font-jakarta">
     <div class="flex">
-        <div class="lg:sticky lg:top-0 lg:h-screen lg:w-auto absolute bg-putihneut2 w-full lg:overflow-y-auto">
+        <div class="lg:fixed lg:top-0 lg:h-screen lg:w-auto absolute bg-putihneut2 w-full lg:overflow-y-auto">
              @include('component.sidebar.sidebar')
         </div>
-        <div class="flex-1 mx-6 mb-6 main-content mt-[96px] lg:mt-0">
+        <div class="flex-1 mx-6 mb-6 main-content mt-[96px] lg:mt-0 lg:ml-[364px]">
             <nav class="nav sticky top-0 z-50 bg-putihneut2 pt-6 pb-4 hidden lg:block">
                 @include('component.navbar.navbar-home')
             </nav>
