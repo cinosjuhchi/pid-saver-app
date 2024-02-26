@@ -35,3 +35,4 @@ Route::get('/preview/{slug}', [PhotoController::class, 'show'])->middleware('aut
 Route::post('add-folder', [FolderController::class, 'store'])->middleware('auth')->name('add-folder');
 Route::get('/download/{slug}', [DownloadController::class, 'downloadImage'])->middleware('auth')->name('download-image');
 Route::get('/folders/{slug}', [FolderController::class,'show'])->middleware('auth')->name('folder-show');
+Route::get('/download-zip/{id}', [FolderController::class, 'zipFolder'])->middleware('auth')->name('download-zip');
