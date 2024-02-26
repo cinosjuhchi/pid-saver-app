@@ -14,7 +14,7 @@
                 <form id="uploadForm" name="title" action="{{ route('add-folder') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="parent_folder_id" value="{{ $title == 'Beranda' ? 1 : $folder->id }}">
-                    <input type="text" id="textFolder" name="title" class="border border-gray-300 p-2 mb-4 rounded-md placeholder:text-sm w-full" placeholder="Masukkan nama folder">
+                    <input type="text" id="textFolder" name="title" class="border border-gray-300 p-2 mb-4 rounded-md placeholder:text-sm w-full" placeholder="Masukkan nama folder" required>
                     <button type="submit" class="bg-birumuda hover:bg-birutua transition-all text-white font-bold py-2 px-4 rounded">Tambahkan</button>
                 </form>
             </div>

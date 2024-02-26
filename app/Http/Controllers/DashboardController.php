@@ -19,4 +19,22 @@ class DashboardController extends Controller
         return view('home', compact('title', 'photos', 'folders'));
 
     }
+
+    public function searchFiles(Request $request)
+    {
+        $title = 'Search ' . $request->search_title;
+        $search = $request->input('search_title');
+
+    if ($search) {
+        $photos = Photo::where('title', 'like', "%{$search}%")->get();
+        $folders = Folder::where('title', 'like', "%{$search}%")->get();
+    } else {
+        // Jika pencarian kosong, tampilkan semua file
+        $photos = Photo::all();
+        $folders = Folder::all();
+    }
+
+    return view('home', compact('photos', 'folders', 'title'));
+    }
+
 }

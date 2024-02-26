@@ -36,3 +36,4 @@ Route::post('add-folder', [FolderController::class, 'store'])->middleware('auth'
 Route::get('/download/{slug}', [DownloadController::class, 'downloadImage'])->middleware('auth')->name('download-image');
 Route::get('/folders/{slug}', [FolderController::class,'show'])->middleware('auth')->name('folder-show');
 Route::get('/download-zip/{id}', [FolderController::class, 'zipFolder'])->middleware('auth')->name('download-zip');
+Route::get('/search-files', [DashboardController::class, 'searchFiles'])->name('search-files');

@@ -5,11 +5,18 @@
         <i
         class="bi bi-search cursor-pointer text-indigo-95 group-focus-within/search:text-blue-700"
       ></i>
-        <input class="outline-none w-full bg-slate-100 rounded-md bg-transparent group/search " type="text" name="" placeholder="Cari di SaverApp" id="">
+        <form id="searchForm" action="{{ route('search-files') }}" method="GET">
+        <input class="outline-none w-full bg-slate-100 rounded-md bg-transparent group/search " type="text" name="search_title" placeholder="Cari di SaverApp" id="search_title">
+        </form>
     </div>
     <div class="w-auto">
         @include('component.button-dropdown.button')
     </div>
 </div>
 </div>
+<script>
+    document.getElementById('search_title').addEventListener('submit', function() {
+        document.getElementById('searchForm').submit();
+    });
+</script>
 
