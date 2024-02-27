@@ -23,7 +23,9 @@
                             <!-- Dropdown content here -->
                             <!-- Example dropdown content: -->
                             <div class="rounded border-gray-300 bg-white shadow-md p-2 text-sm transition-all">
+                                <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-pencil-square"></i>Ganti nama</a>                                
                                 <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                                
+                                <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-archive"></i>Pindahkan ke arsip</a>                                
                                 <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('download-zip', ['id' => $subFolder->id]) }}" id="openFolder"><i class="bi bi-download"></i>Download</a>                                
                                 <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-red-500" id="openFolder"><i class="bi bi-trash"></i>Hapus</a>                                
                             </div>

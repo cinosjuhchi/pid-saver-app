@@ -47,7 +47,7 @@
 
     <!-- Navbar -->
     <div class="relative lg:text-2xl">
-        <nav class="nav-modal w-full flex justify-between items-center sm:px-2 lg:px-6 py-4 bg-putihneut2 bg-opacity-80 bg-blend-overlay absolute z-10">
+        <nav class="nav-modal w-full flex justify-between items-center sm:px-2 lg:px-6 py-4 bg-opacity-80 bg-blend-overlay absolute z-10">
             <div class="kanan flex items-center text-black lg:gap-2 sm:gap-1 font-bold truncate">
                 <button id="tutup" onclick="goBack()" class="cursor-pointer hover:bg-black hover:text-white rounded-full px-3 py-2">
                     <i class="bi bi-arrow-left text-2xl"></i>
@@ -78,7 +78,7 @@
     <div class="bg-neutral-50 lg:text-2xl h-screen flex flex-col">
         <div class="flex-1 flex items-center justify-center overflow w-full relative ">
             <div class="max-w-lg mx-auto absolute z-50">
-                <img id="modal-image" src="{{ asset('storage/' . $photo->image_location) }}" alt="Gambar" class="zoomable-image h-max w-max scale-100 object-cover">
+                <img id="modal-image" src="{{ asset('storage/' . $photo->image_location) }}" alt="Gambar" class="zoomable-image h-max w-max scale-75 lg:scale-100 object-cover">
             </div>
 
 
