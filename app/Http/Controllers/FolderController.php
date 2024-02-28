@@ -92,4 +92,24 @@ class FolderController extends Controller
             $this->addFolderToZip($subFolder, $zip, $parentPath . $subFolder->title . '/');
         }
     }
+
+    public function favorite($id)
+    {
+        $folder = Folder::find($id);
+        $folder->update(['status' => 'favorite']);
+        return back()->with('success', 'Difavoritkan');
+    }
+
+    public function archive($id)
+    {
+        $folder = Folder::find($id);
+        $folder->update(['status' => 'archive']);
+        return back()->with('success', 'Diarsipkan');
+    }
+    public function unstatus($id)
+    {
+        $folder = Folder::find($id);
+        $folder->update(['status' => 'active']);
+        return back()->with('success', 'Difavoritkan');
+    }
 }

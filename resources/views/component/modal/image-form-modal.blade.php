@@ -13,7 +13,7 @@
             <div class="modal-body">
                 <form id="uploadForm" action="{{ route('upload-photo') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="parent_folder_id" value="{{ $folder->id }}">
+                    <input type="hidden" name="parent_folder_id" value="{{ $title == 'Beranda' || $title == 'Photo' || $title == 'Folder' || $title == 'Archive' ? 1 : $folder->id }}">
                     <input type="file" id="imageUpload" name="image_location[]" class="border p-1 border-gray-300 mb-4 rounded-md w-full placeholder:text-sm" multiple required>
                     <button type="submit" class="bg-birumuda hover:bg-birutua transition-all text-white font-bold py-2 px-4 rounded">Upload</button>
                 </form>

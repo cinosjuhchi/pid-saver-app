@@ -15,8 +15,34 @@ class DashboardController extends Controller
         $photos = Photo::where("place_folder_id", 1)->get();
         $folders = Folder::where('parent_folder_id', 1)
                     ->where('id', '!=', 1)
+                    ->where('status', '!=', 'archive')
                     ->get();
         return view('home', compact('title', 'photos', 'folders'));
+
+    }
+
+    public function photo()
+    {
+        $title = "Photo";
+        $photos = Photo::where('status', '!=', 'archive')->get();
+        $folders = Folder::where('status', '!=', 'archive');
+        return view('home', compact('title', 'photos','folders'));
+
+    }
+    public function folder()
+    {
+        $title = "Folder";
+        $photos = Photo::where('status', '!=', 'archive');
+        $folders = Folder::where('status', '!=', 'archive')->get();
+        return view('home', compact('title', 'photos','folders'));
+
+    }
+    public function archive()
+    {
+        $title = "Archive";
+        $photos = Photo::where('status', '=', 'archive')->get();
+        $folders = Folder::where('status', '=', 'archive')->get();
+        return view('home', compact('title', 'photos','folders'));
 
     }
 

@@ -37,3 +37,9 @@ Route::get('/download/{slug}', [DownloadController::class, 'downloadImage'])->mi
 Route::get('/folders/{slug}', [FolderController::class,'show'])->middleware('auth')->name('folder-show');
 Route::get('/download-zip/{id}', [FolderController::class, 'zipFolder'])->middleware('auth')->name('download-zip');
 Route::get('/search-files', [DashboardController::class, 'searchFiles'])->name('search-files');
+Route::get('/favorite-folder/{id}', [FolderController::class,'favorite'])->middleware('auth')->name('favorite-folder');
+Route::get('/archive-folder/{id}', [FolderController::class,'archive'])->middleware('auth')->name('archive-folder');
+Route::get('/unstatus-folder/{id}', [FolderController::class,'archive'])->middleware('auth')->name('unstatus-folder');
+Route::get('/photo', [DashboardController::class, 'photo'])->middleware('auth')->name('all-photo');
+Route::get('/folder', [DashboardController::class, 'folder'])->middleware('auth')->name('all-folder');
+Route::get('/archive', [DashboardController::class, 'archive'])->middleware('auth')->name('all-archive');

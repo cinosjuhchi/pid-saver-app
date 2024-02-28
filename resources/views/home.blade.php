@@ -4,6 +4,7 @@
 
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
 
+    @if($title == 'Beranda' || $title == 'Photo' )
     @foreach ($photos as $photo)
         
         <div class="group">
@@ -37,7 +38,10 @@
         </div>
 
     @endforeach
+    @endif
 
+
+    @if($title == 'Beranda' || $title == 'Folder' )
     @foreach ($folders as $folder)
         
         <div class="group">
@@ -55,8 +59,12 @@
                                 <!-- Example dropdown content: -->
                                 <div class="rounded border-gray-300 bg-white shadow-md p-2 text-sm transition-all">
                                     <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-pencil-square"></i>Ganti nama</a>
-                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                                
-                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-archive"></i>Pindahkan ke Arsip</a>                                
+                                    @if($folder->status == 'active')
+                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('favorite-folder', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                           @else
+                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-yellow-500 font-bold" href="{{ route('unstatus-folder', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-star-fill text-yellow-500"></i>Hapus dari Favorit</a>                           
+                                    @endif      
+                                                            
+                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder" href="{{ route('archive-folder', ['id' => $folder->id]) }}"><i class="bi bi-archive"></i>Pindahkan ke Arsip</a>                                
                                     <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('download-zip', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-download"></i>Download</a>                                
                                     <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-red-500" id="openFolder"><i class="bi bi-trash"></i>Hapus</a>                             
                                 </div>
@@ -71,6 +79,7 @@
         </div>
 
     @endforeach
+    @endif
 
         
 </div>

@@ -82,21 +82,21 @@
         </div>
     </a>
 
-    <a href="/foto">
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100">
+    <a href="{{ route('all-photo') }}">
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100 {{ $title === "Photo" ? "bg-gradient-to-l from-birumuda to-birutua text-neutral-100" : "" }}">
             <i class="bi bi-images font-bold"></i>
             <span class="ml-4 text-dark-200 font-bold">Foto</span>
         </div>
     </a>
 
-    <a href="">
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100">
+    <a href="{{ route('all-folder') }}">
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100 {{ $title === "Folder" ? "bg-gradient-to-l from-birumuda to-birutua text-neutral-100" : "" }}">
             <i class="bi bi-folder font-bold"></i>
             <span class="ml-4 text-dark-200 font-bold">Folder</span>
         </div>
     </a>
 
-    <a href="">
+    <a href="{{ route('all-archive') }}">
         <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100">
             <i class="bi bi-archive font-bold"></i>
             <span class="ml-4 text-dark-200 font-bold">Arsip</span>

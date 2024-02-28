@@ -99,7 +99,7 @@
                     </tr>
                     <tr class="align-text-top mb-3">
                         <td class="pb-4">Ukuran</td>
-                        <td class="pb-4">1920 x 1080</td>
+                        <td class="pb-4">{{ $ukuran }}</td>
                     </tr>
                     <tr class="align-text-top mb-3">
                         <td class="pb-4">Dibuat</td>
