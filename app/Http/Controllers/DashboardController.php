@@ -32,7 +32,7 @@ class DashboardController extends Controller
     public function folder()
     {
         $title = "Folder";
-        $photos = Photo::where('status', '!=', 'archive');
+        $photos = Photo::where('status', '!=', 'archive')->get();
         $folders = Folder::where('status', '!=', 'archive')->get();
         return view('home', compact('title', 'photos','folders'));
 
@@ -48,17 +48,41 @@ class DashboardController extends Controller
 
     public function searchFiles(Request $request)
     {
-        $title = 'Search ' . $request->search_title;
         $search = $request->input('search_title');
+        $category = $request->input('title_search');
+        $title = $category;
 
     if ($search) {
-        $photos = Photo::where('title', 'like', "%{$search}%")->get();
-        $folders = Folder::where('title', 'like', "%{$search}%")->get();
+        if($category == 'Beranda' || $category == 'Folder' || $category == 'Photo'){
+            $photos = Photo::where('title', 'like', "%{$search}%")
+            ->where('status', '!=', 'archive')
+            ->get();
+            $folders = Folder::where('title', 'like', "%{$search}%")
+            ->where('status', '!=', 'archive')
+            ->get();
+        }
+        if($category == 'Archive'){
+            $photos = Photo::where('title', 'like', "%{$search}%")
+            ->where('status', '=', 'archive')
+            ->get();
+            $folders = Folder::where('title', 'like', "%{$search}%")
+            ->where('status', '=', 'archive')
+            ->get();
+        }
+
+        
     } else {
         // Jika pencarian kosong, tampilkan semua file
-        $photos = Photo::all();
-        $folders = Folder::all();
-    }
+        if($category == 'Beranda' || $category == 'Photo' || $category == 'Folder'){
+            $photos = Photo::where('status', '!=', 'archive')->get();
+             $folders = Folder::where('status', '!=', 'archive')->get();
+        }
+        if($category == 'Archive'){
+            $photos = Photo::where('status', '=', 'archive')->get();
+             $folders = Folder::where('status', '=', 'archive')->get();
+        }
+        
+        }
 
     return view('home', compact('photos', 'folders', 'title'));
     }

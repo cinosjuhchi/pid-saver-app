@@ -7,6 +7,7 @@ use App\Models\Folder;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Session;
 
 class FolderController extends Controller
 {
@@ -59,8 +60,31 @@ class FolderController extends Controller
         return $count > 0 ? "{$slug}-" . ($count + 1) : $slug;
     }
 
+    protected function folderHasPhotos($folder)
+{
+    // Memeriksa apakah folder memiliki foto
+    if (!$folder->photos->isEmpty()) {
+        return true;
+    }
+
+    // Memeriksa apakah subfolder memiliki foto
+    foreach ($folder->subFolders as $subfolder) {
+        if ($this->folderHasPhotos($subfolder)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
     public function zipFolder($folderId)
     {
+        $isiFolder = Folder::find($folderId);
+        if (!$this->folderHasPhotos($isiFolder)) {
+         Session::flash('error', 'Tidak ada foto dalam folder atau subfolder untuk di-zip.');
+        return redirect()->back();
+        }
+        // if($isiFolder->)
         $folder = Folder::findOrFail($folderId);
 
         $zipFileName = "folder_{$folderId}_contents.zip";

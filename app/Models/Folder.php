@@ -19,7 +19,7 @@ class Folder extends Model
         return $this->belongsTo(Folder::class, 'parent_folder_id');
     }
 
-    public function subfolders(): HasMany
+    public function subFolders(): HasMany
     {
         return $this->hasMany(Folder::class, 'parent_folder_id');
     }

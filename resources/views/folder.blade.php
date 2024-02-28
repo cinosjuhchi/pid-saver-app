@@ -4,7 +4,11 @@
     
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
 
-
+    @if(Session::has('error'))
+    <div class="alert alert-danger">
+        {{ Session::get('error') }}
+    </div>
+    @endif
     @if ($subFolders->isEmpty() && $photos->isEmpty())
         <p>Tidak ada apa-apa di sini.</p>
     @else

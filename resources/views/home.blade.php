@@ -4,7 +4,16 @@
 
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
 
-    @if($title == 'Beranda' || $title == 'Photo' )
+@if(Session::has('error'))
+    <div class="alert alert-danger">
+        {{ Session::get('error') }}
+    </div>
+@endif
+
+@if($photos->isEmpty() && $folders->isEmpty())
+    <p>Tidak ada apa-apa di sini</p>
+@else    
+    @if($title == 'Beranda' || $title == 'Photo' || $title == 'Archive' )
     @foreach ($photos as $photo)
         
         <div class="group">
@@ -41,7 +50,7 @@
     @endif
 
 
-    @if($title == 'Beranda' || $title == 'Folder' )
+    @if($title == 'Beranda' || $title == 'Folder' || $title == 'Archive' )
     @foreach ($folders as $folder)
         
         <div class="group">
@@ -80,7 +89,7 @@
 
     @endforeach
     @endif
-
+@endif
         
 </div>
 
