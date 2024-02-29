@@ -17,6 +17,7 @@
     </style>
 </head>
 <body class="bg-putihneut2 font-jakarta overflow-hidden">
+    @include('sweetalert::alert')`
     @yield('content')
 </body>
 </html>

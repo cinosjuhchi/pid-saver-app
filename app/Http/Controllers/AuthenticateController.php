@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,12 +19,14 @@ class AuthenticateController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ], [
+            'username' => 'required|string|max:10',
+            'password' => 'required|string|max:100',
+        ], [                
             'username.required' => 'Username wajib diisi',
             'password.required' => 'Password wajib diisi',
         ]);
+
+
 
         $infologin = [
             'username' => $request->username,

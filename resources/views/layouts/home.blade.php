@@ -25,6 +25,7 @@
     </style>
 </head>
 <body class="bg-putihneut2 font-jakarta">
+    @include('sweetalert::alert')
     <div class="flex">
         <div class="lg:fixed lg:top-0 lg:h-screen lg:w-auto absolute bg-putihneut2 w-full lg:overflow-y-auto">
              @include('component.sidebar.sidebar')

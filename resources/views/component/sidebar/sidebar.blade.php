@@ -63,7 +63,7 @@
     </div>
 </div>
 
-<div class="sidebar fixed h-svh top-0 bottom-0 lg:left-0 py-4 px-5 md:w-1/3 sm:w-1/2 lg:w-[340px] overflow-y-visible text-center bg-neutral-50 ease-in-out z-50">
+<div class="sidebar hidden fixed h-svh top-0 bottom-0 lg:left-0 py-4 px-5 md:w-1/3 sm:w-1/2 lg:w-[340px] overflow-y-visible text-center bg-neutral-50 ease-in-out z-50">
     <div class="mt-1 flex items-center justify-between mb-3">
         <h1 class="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-birumuda to-birutua text-2xl">SaverApp</h1>
         <i class="bi bi-x-circle cursor-pointer text-black lg:hidden close-sidebar"></i>
@@ -97,14 +97,14 @@
     </a>
 
     <a href="{{ route('all-archive') }}">
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100">
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100 {{ $title === "Archive" ? "bg-gradient-to-l from-birumuda to-birutua text-neutral-100" : "" }}">
             <i class="bi bi-archive font-bold"></i>
             <span class="ml-4 text-dark-200 font-bold">Arsip</span>
         </div>
     </a>
 
     <a href="">
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100">
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100 {{ $title === "Favorite" ? "bg-gradient-to-l from-birumuda to-birutua text-neutral-100" : "" }}">
             <i class="bi bi-star font-bold"></i>
             <span class="ml-4 text-dark-200 font-bold">Favorit</span>
         </div>
@@ -137,4 +137,22 @@
             sidebar.classList.add('hidden');
         }, 300);
     });
+
+    // Check screen size and show/hide sidebar accordingly
+    function toggleSidebarVisibility() {
+        const lgScreenWidth = 1024;
+        const screenWidth = window.innerWidth;
+
+        if (screenWidth >= lgScreenWidth) {
+            sidebar.classList.remove('hidden');
+        } else {
+            sidebar.classList.add('hidden');
+        }
+    }
+
+    // Initial check on page load
+    toggleSidebarVisibility();
+
+    // Listen for window resize events
+    window.addEventListener('resize', toggleSidebarVisibility);
 </script>

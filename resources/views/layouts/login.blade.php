@@ -10,7 +10,7 @@
     </style>
 </head>
 <body class="font-jakarta">
-    
+    @include('sweetalert::alert')
     <div class="">
         @yield('form')
     </div>

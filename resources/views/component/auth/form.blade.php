@@ -22,9 +22,14 @@
                                 name="username"
                                 type="nama"
                                 autocomplete="nama"
-                                required
-                                class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-birumuda sm:text-sm sm:leading-6 px-2"
+                                value="{{ old('username') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-birumuda @error('username') invalid:border-red-500 @enderror sm:text-sm sm:leading-6 px-2"
                             />
+                            @error('username')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
 
@@ -42,9 +47,13 @@
                                 name="password"
                                 type="password"
                                 autocomplete="current-password"
-                                required
-                                class="block w-full px-2 rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-birumuda sm:text-sm sm:leading-6"
+                                class="block w-full px-2 @error('password') invalid:border-red-500 @enderror rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-birumuda sm:text-sm sm:leading-6"
                             />
+                            @error('password')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
 

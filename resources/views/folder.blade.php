@@ -10,7 +10,7 @@
     </div>
     @endif
     @if ($subFolders->isEmpty() && $photos->isEmpty())
-        <p>Tidak ada apa-apa di sini.</p>
+        @include('component.blank.nothing')
     @else
     @foreach ($folder->subFolders as $subFolder)
     <div class="group">

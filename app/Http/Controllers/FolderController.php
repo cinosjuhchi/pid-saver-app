@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use ZipArchive;
 use App\Models\Folder;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
@@ -81,8 +82,8 @@ class FolderController extends Controller
     {
         $isiFolder = Folder::find($folderId);
         if (!$this->folderHasPhotos($isiFolder)) {
-         Session::flash('error', 'Tidak ada foto dalam folder atau subfolder untuk di-zip.');
-        return redirect()->back();
+        toast('Zip gagal dibuat,minimal ada 1 foto didalam nya','error');
+        return back();
         }
         // if($isiFolder->)
         $folder = Folder::findOrFail($folderId);
