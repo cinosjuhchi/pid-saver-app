@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
     />
+    <link rel="shortcut icon" href="{{ asset('resources/image/logosaver.png') }}" type="image/x-icon">
     @vite('resources/css/app.css')
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');

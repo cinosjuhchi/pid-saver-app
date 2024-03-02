@@ -17,8 +17,8 @@
         <i class="bi bi-chevron-compact-down"></i>        
     </button>
     <div class="rounded border-gray-300 bg-white shadow-md z-10 mt-1 p-2 absolute text-sm font-semibold hidden transition-all" id="FilterDibuat">
-        <div class="hover:bg-slate-200 px-3 py-2 rounded-sm flex items-center gap-2 cursor-pointer" id="openFolder"><i class="bi bi-sort-alpha-up text-xl"></i>Terbaru</div>
-        <div class="hover:bg-slate-200 px-3 py-2 rounded-sm flex gap-2 cursor-pointer items-center" id="openModal"><i class="bi bi-sort-alpha-down-alt text-xl"></i>Terlama</div>
+        <div class="hover:bg-slate-200 px-3 py-2 rounded-sm flex items-center gap-2 cursor-pointer" id="openFolder"><i class="bi bi-sort-up text-xl"></i>Urutkan Terbaru</div>
+        <div class="hover:bg-slate-200 px-3 py-2 rounded-sm flex gap-2 cursor-pointer items-center" id="openModal"><i class="bi bi-sort-down-alt text-xl"></i>Urutkan Terlama</div>
     </div>
 </div>
 

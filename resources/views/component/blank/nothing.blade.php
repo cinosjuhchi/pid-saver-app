@@ -1,3 +1,22 @@
+<div class="flex items-center justify-center">
+    <div class="content text-center" id="drop-area">
+        <img src="{{ asset('resources/image/nothing.png') }}" alt="Placeholder" class="mx-auto">
+        <div class="title text-neutral-400">
+            <h1 class="text-2xl mt-4">Seret foto ke sini</h1>
+            <h1 class="">atau</h1>
+            <h1>Gunakan tombol buat</h1>
+        </div>
+        <form id="uploadForm" action="{{ route('upload-photo') }}" method="POST" enctype="multipart/form-data" class="hidden">
+            @csrf
+            <input type="hidden" name="parent_folder_id" value="{{ $title == 'Beranda' || $title == 'Photo' || $title == 'Folder' || $title == 'Archive' ? 1 : $folder->id }}">
+            <input type="file" id="imageUpload" name="image_location[]" class="hidden" multiple required>
+            <button type="submit" class="hidden">Upload</button>
+        </form>
+    </div>
+</div>
+
+
+
 <script>// Drag and drop functionality
 const dropArea = document.getElementById('drop-area');
 const uploadForm = document.getElementById('uploadForm');
