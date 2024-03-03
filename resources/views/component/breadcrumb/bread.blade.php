@@ -1,33 +1,23 @@
 <div class=" flex items-center flex-wrap text-sm py-2">
-  <ul class="flex items-center">
-	<li class="inline-flex items-center">
-	  <a href="#" class="text-gray-600 hover:text-birumuda">
-        Nama Parent Folder
+  <ol class="flex items-center whitespace-nowrap" aria-label="Breadcrumb">
+  <li class="inline-flex items-center">
+    <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:focus:text-blue-500" href="#">
+      Home
     </a>
-
-	  <svg class="w-5 h-auto fill-current mx-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
-	</li>
-
-	<li class="inline-flex items-center">
-	  <a href="#" class="text-gray-600 hover:text-birumuda">
-		Page 1
-	  </a>
-
-	  <svg class="w-5 h-auto fill-current mx-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
-	</li>
-
-	<li class="inline-flex items-center">
-	  <a href="#" class="text-gray-600 hover:text-birumuda">
-		Page 2
-	  </a>
-
-	  <svg class="w-5 h-auto fill-current mx-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
-	</li>
-
-	<li class="inline-flex items-center">
-	  <a href="#" class="text-gray-600 hover:text-birumuda">
-		Page 3
-	  </a>
-	</li>
-  </ul>
+    <svg class="flex-shrink-0 size-5 text-gray-400 dark:text-gray-600 mx-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"/>
+    </svg>
+  </li>
+  <li class="inline-flex items-center">
+    <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:focus:text-blue-500" href="#">
+      App Center
+      <svg class="flex-shrink-0 size-5 text-gray-400 dark:text-gray-600 mx-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"/>
+    </svg>
+    </a>
+  </li>
+  <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-gray-200" aria-current="page">
+    Application
+  </li>
+</ol>
 </div>
