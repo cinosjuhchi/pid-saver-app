@@ -2,8 +2,8 @@
     <div class="h-screen flex flex-1 justify-center items-center text-center">
         <div class="modal-content bg-white py-4 px-6 w-1/3 items-center rounded-sm relative">
             <!-- Modal Header -->
-            <div class="modal-header">
-                <h3 class="text-lg font-semibold mb-4">Upload Foto</h3>
+            <div class="modal-header mb-12">
+                <h3 class="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-birumuda to-birutua text-2xl">Upload Foto</h3>
                 <button id="closeModal" class="modal-close absolute -top-3 -right-3">
                     <i class="bi bi-x-lg bg-black text-white px-1 text-2xl rounded-full"></i>
                 </button>

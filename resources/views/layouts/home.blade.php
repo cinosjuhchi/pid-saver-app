@@ -23,6 +23,7 @@
         ::-webkit-scrollbar-track {
             background: transparent; /* Make the scrollbar transparent */
         }
+        
     </style>
 </head>
 <body class="bg-putihneut2 font-jakarta">

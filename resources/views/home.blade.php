@@ -2,11 +2,12 @@
 @section('content')
     @include('component.filter.filter-file-folder')
 
+    @if($photos->isEmpty() && $folders->isEmpty())
+        <div class="flex justify-center mt-12">
+            @include('component.blank.nothing')
+        </div>
+    @else    
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
-
-@if($photos->isEmpty() && $folders->isEmpty())
-    @include('component.blank.nothing')
-@else    
     @if($title == 'Beranda' || $title == 'Photo' || $title == 'Archive' )
     @foreach ($photos as $photo)
         
