@@ -50,7 +50,7 @@ public function show($slug)
         $subFolders = $folder->subFolders;
         $photos = $folder->photos;
         $title = $folder->title;
-        $identity = 'shoaw';
+        $identity = 'show';
 
         $breadcrumb = [];
 
