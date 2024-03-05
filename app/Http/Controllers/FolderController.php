@@ -12,15 +12,61 @@ use Illuminate\Support\Facades\Session;
 
 class FolderController extends Controller
 {
-    public function show($slug)
+    // public function show($slug)
+    // {
+    //     $folder = Folder::where('slug', $slug)->firstOrFail();
+    //     $subFolders = $folder->subFolders;
+    //     $photos = $folder->photos;
+    //     $title = $folder->title;
+
+    //     return view('folder', compact('subFolders', 'photos', 'folder', 'title'));
+    // }
+
+
+    // FolderController.php
+// public function show(Request $request, $slug = null)
+// {
+//     $breadcrumbs = [];
+//     $currentPath = '';
+//     $folders = Folder::where('slug', $slug)->get();
+//     $folder = Folder::where('slug', $slug)->firstOrFail();
+
+//     foreach ($folders as $fold) {
+//         $breadcrumbs[] = $this->createBreadcrumb($fold->title, route('folder-show', ['slug' => $fold->slug]));
+//         $currentPath .= $fold->slug . '/';
+//     }
+
+//     $subFolders = $folders->last()->subFolders;
+//     $photos = $folders->last()->photos;
+//     $title = $folders->last()->title;
+
+//     return view('folder', compact('folder', 'subFolders', 'photos', 'title', 'breadcrumbs'));
+// }
+
+public function show($slug)
     {
         $folder = Folder::where('slug', $slug)->firstOrFail();
+        $parent = Folder::where('id', $folder->parent_folder_id)->firstOrFail();
         $subFolders = $folder->subFolders;
         $photos = $folder->photos;
         $title = $folder->title;
+        $identity = 'show';
 
-        return view('folder', compact('subFolders', 'photos', 'folder', 'title'));
+        $breadcrumb = [];
+
+        $breadcrumb = $this->createBreadcrumb($parent->title, route('folder-show', ['slug' => $parent->slug]));
+
+        return view('folder', compact('subFolders', 'photos', 'folder', 'title', 'breadcrumb', 'identity'));
     }
+
+
+private function createBreadcrumb($label, $url)
+{
+    return [
+        'label' => $label,
+        'url' => $url,
+    ];
+}
 
     public function store(Request $request)
     {
