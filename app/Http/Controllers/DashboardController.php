@@ -14,31 +14,34 @@ class DashboardController extends Controller
         $title = "Beranda";
         $filterActive = null;
         $identity = 'beranda';
+        $folder = Folder::find(1);
+        
+        $location = $request->input('loc');
 
         if ($request->has('filter') && $request->input('filter') === 'photo') {
-            $photos = $this->filterAppPhotos();
+            $photos = $this->filterAppPhotos($location);
             $folders = collect(); // Empty collection as folders are not needed in this case            
             $filterActive = 'photo';
         } elseif ($request->has('filter') && $request->input('filter') === 'folder') {
-            $folders = $this->filterAppFolders();
+            $folders = $this->filterAppFolders($location);
             $photos = collect(); // Empty collection as photos are not needed in this case            
             $filterActive = 'folder';
         } else {
             // Fetch both photos and folders if no specific filter is selected
-            $photos = $this->filterAppPhotos();
-            $folders = $this->filterAppFolders();
+            $photos = $this->filterAppPhotos($location);
+            $folders = $this->filterAppFolders($location);
         }
-        return view('home', compact('title', 'photos', 'folders', 'identity', 'filterActive'));
+        return view('home', compact('folder', 'title', 'photos', 'folders', 'identity', 'filterActive'));
 
     }
 
-    private function filterAppPhotos()
+    private function filterAppPhotos($loc)
     {
         return Photo::where('place_folder_id', 1)            
             ->where('status', '!=', 'archive')
             ->get();
     }
-    private function filterAppFolders()
+    private function filterAppFolders($loc)
     {
         return Folder::where('parent_folder_id', 1)
             ->where('id', '!=', 1)
@@ -73,9 +76,22 @@ class DashboardController extends Controller
     {
         $identity = 'archive';
         $title = "Archive";
+        $filterActive = null;
+        $folder = Folder::find(1);
         $photos = Photo::where('status', '=', 'archive')->get();
         $folders = Folder::where('status', '=', 'archive')->get();
-        return view('home', compact('title', 'photos','folders', 'identity'));
+        return view('home', compact('folder', 'title', 'photos','folders', 'identity', 'filterActive'));
+
+    }
+    public function favorite()
+    {
+        $identity = 'favorite';
+        $title = "Favorite";
+        $filterActive = null;
+        $folder = Folder::find(1);
+        $photos = Photo::where('status', 'favorite')->get();
+        $folders = Folder::where('status', 'favorite')->get();
+        return view('home', compact('folder', 'title', 'photos','folders', 'identity', 'filterActive'));
 
     }
 

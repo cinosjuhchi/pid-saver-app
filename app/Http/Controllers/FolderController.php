@@ -181,6 +181,6 @@ private function createBreadcrumb($label, $url)
     {
         $folder = Folder::find($id);
         $folder->update(['status' => 'active']);
-        return back()->with('success', 'Difavoritkan');
+        return back()->with('success', 'Berhasil Dihapus');
     }
 }

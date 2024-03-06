@@ -41,9 +41,13 @@ Route::get('/folders/{slug}', [FolderController::class,'show'])->middleware('aut
 Route::get('/download-zip/{id}', [FolderController::class, 'zipFolder'])->middleware('auth')->name('download-zip');
 Route::get('/search-files', [DashboardController::class, 'searchFiles'])->name('search-files');
 Route::get('/favorite-folder/{id}', [FolderController::class,'favorite'])->middleware('auth')->name('favorite-folder');
+Route::get('/favorite-photo/{id}', [PhotoController::class,'favorite'])->middleware('auth')->name('favorite-photo');
 Route::get('/archive-folder/{id}', [FolderController::class,'archive'])->middleware('auth')->name('archive-folder');
-Route::get('/unstatus-folder/{id}', [FolderController::class,'archive'])->middleware('auth')->name('unstatus-folder');
+Route::get('/archive-photo/{id}', [PhotoController::class,'archive'])->middleware('auth')->name('archive-photo');
+Route::get('/unstatus-folder/{id}', [FolderController::class,'unstatus'])->middleware('auth')->name('unstatus-folder');
+Route::get('/unstatus-photo/{id}', [PhotoController::class,'unstatus'])->middleware('auth')->name('unstatus-photo');
 Route::get('/photo', [DashboardController::class, 'photo'])->middleware('auth')->name('all-photo');
 Route::get('/folder', [DashboardController::class, 'folder'])->middleware('auth')->name('all-folder');
 Route::get('/archive', [DashboardController::class, 'archive'])->middleware('auth')->name('all-archive');
+Route::get('/favorite', [DashboardController::class, 'favorite'])->middleware('auth')->name('all-favorite');
 

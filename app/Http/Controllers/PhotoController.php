@@ -33,4 +33,24 @@ class PhotoController extends Controller
 
         return view('preview', compact('title', 'photo', 'ukuran'));
     }
+
+    public function archive($id)
+    {
+        $photo = Photo::find($id);
+        $photo->update(['status' => 'archive']);
+        return back()->with('success', 'Diarsipkan');
+    }
+    public function unstatus($id)
+    {
+        $photo = Photo::find($id);
+        $photo->update(['status' => 'active']);
+        return back()->with('success', 'Berhasil Dihapus');
+    }
+
+    public function favorite($id)
+    {
+        $photo = Photo::find($id);
+        $photo->update(['status' => 'favorite']);
+        return back()->with('success', 'Difavoritkan');
+    }
 }

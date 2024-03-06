@@ -8,7 +8,7 @@
         </div>
     @else    
 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-5 gap-x-4 mt-6">
-    @if($title == 'Beranda' || $title == 'Photo' || $title == 'Archive' )
+    @if($title == 'Beranda' || $title == 'Photo' || $title == 'Archive' || $title == 'Favorite' )
     @foreach ($photos as $photo)
         
         <div class="group">
@@ -26,8 +26,8 @@
                                 <!-- Example dropdown content: -->
                                 <div class="rounded border-gray-300 bg-white shadow-md p-2 text-sm transition-all">
                                     <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-pencil-square"></i>Ganti nama</a>                                
-                                    <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                                
-                                    <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-archive"></i>Pindahkan ke Arsip</a>                                
+                                    <a href="{{ $photo->status == 'favorite' ? route('unstatus-photo', ['id' => $photo->id]) : route('favorite-photo', ['id' => $photo->id]) }}" class="hover:bg-slate-200 px-3 py-2 {{ $photo->status == 'favorite' ? 'text-yellow-500 font-bold' : '' }} rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-star{{ $photo->status == 'favorite' ? '-fill' : '' }}"></i>{{ $photo->status == 'favorite' ? 'Hapus dari Favorit' : 'Tambahkan ke Favorit' }}</a>                                                                                      
+                                    <a href="{{ $photo->status == 'archive' ? route('unstatus-photo', ['id' => $photo->id]) : route('archive-photo', ['id' => $photo->id]) }}" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-archive"></i>{{ $photo->status == 'archive' ? 'Hapus dari Arsip' : 'Tambahkan ke Arsip' }}</a>  
                                     <a href="{{ route('download-image', ['slug' => $photo->slug]) }}" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-download"></i>Download</a>                                
                                     <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-red-500" id="openFolder"><i class="bi bi-trash"></i>Hapus</a>                                
                                 </div>
@@ -63,12 +63,8 @@
                                 <!-- Example dropdown content: -->
                                 <div class="rounded border-gray-300 bg-white shadow-md p-2 text-sm transition-all">
                                     <a href="" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-pencil-square"></i>Ganti nama</a>
-                                    @if($folder->status == 'active')
-                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('favorite-folder', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                           @else
-                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-yellow-500 font-bold" href="{{ route('unstatus-folder', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-star-fill text-yellow-500"></i>Hapus dari Favorit</a>                           
-                                    @endif      
-                                                            
-                                    <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder" href="{{ route('archive-folder', ['id' => $folder->id]) }}"><i class="bi bi-archive"></i>Pindahkan ke Arsip</a>                                
+                                    <a href="{{ $folder->status == 'favorite' ? route('unstatus-folder', ['id' => $folder->id]) : route('favorite-folder', ['id' => $folder->id]) }}" class="hover:bg-slate-200 px-3 py-2 {{ $folder->status == 'favorite' ? 'text-yellow-500 font-bold' : '' }} rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-star{{ $folder->status == 'favorite' ? '-fill' : '' }}"></i>{{ $folder->status == 'favorite' ? 'Hapus dari Favorit' : 'Tambahkan ke Favorit' }}</a>                                                   
+                                    <a href="{{ $folder->status == 'archive' ? route('unstatus-folder', ['id' => $folder->id]) : route('archive-folder', ['id' => $folder->id]) }}" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-archive"></i>{{ $folder->status == 'archive' ? 'Hapus dari Arsip' : 'Tambahkan ke Arsip' }}</a>                                
                                     <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('download-zip', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-download"></i>Download</a>                                
                                     <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-red-500" id="openFolder"><i class="bi bi-trash"></i>Hapus</a>                             
                                 </div>

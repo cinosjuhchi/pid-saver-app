@@ -115,7 +115,7 @@
         </div>
     </a>
 
-    <a href="">
+    <a href="{{ route('all-favorite') }}">
         <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-l from-birumuda to-birutua hover:text-neutral-100 {{ $title === "Favorite" ? "bg-gradient-to-l from-birumuda to-birutua text-neutral-100" : "" }}">
             <i class="bi bi-star font-bold"></i>
             <span class="ml-4 text-dark-200 font-bold">Favorit</span>
