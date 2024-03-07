@@ -19,34 +19,69 @@ class DashboardController extends Controller
         $location = $request->input('loc');
 
         if ($request->has('filter') && $request->input('filter') === 'photo') {
-            $photos = $this->filterAppPhotos($location);
+            $photos = $this->filterAppPhotos($location, $identity);
             $folders = collect(); // Empty collection as folders are not needed in this case            
             $filterActive = 'photo';
         } elseif ($request->has('filter') && $request->input('filter') === 'folder') {
-            $folders = $this->filterAppFolders($location);
+            $folders = $this->filterAppFolders($location, $identity);
             $photos = collect(); // Empty collection as photos are not needed in this case            
             $filterActive = 'folder';
         } else {
             // Fetch both photos and folders if no specific filter is selected
-            $photos = $this->filterAppPhotos($location);
-            $folders = $this->filterAppFolders($location);
+            $photos = Photo::where('place_folder_id', 1)
+            ->where('status', '!=', 'archive')
+            ->get();
+            $folders = Folder::where('parent_folder_id', 1)
+            ->where('status', '!=', 'archive')
+            ->get();;
         }
         return view('home', compact('folder', 'title', 'photos', 'folders', 'identity', 'filterActive'));
 
     }
 
-    private function filterAppPhotos($loc)
+    private function filterAppPhotos($loc, $iden)
     {
-        return Photo::where('place_folder_id', 1)            
+        if($iden == 'beranda' || $iden == 'show')
+        {
+            return Photo::where('place_folder_id', $loc)            
             ->where('status', '!=', 'archive')
             ->get();
+        } 
+        if($iden == 'archive')
+        {
+            return Photo::where('status', '=', 'archive')
+            ->get();
+        } 
+        if($iden == 'favorite')
+        {
+            return Photo::where('status', '=', 'favorite')
+            ->get();
+        }
+        
     }
-    private function filterAppFolders($loc)
+    private function filterAppFolders($loc, $iden)
     {
-        return Folder::where('parent_folder_id', 1)
+
+        if($iden == 'beranda' || $iden == 'show')
+        {
+            return Folder::where('parent_folder_id', $loc)
             ->where('id', '!=', 1)
             ->where('status', '!=', 'archive')
             ->get();
+        } 
+        if($iden == 'archive')
+        {
+            return Folder::where('id', '!=', 1)
+            ->where('status', '=', 'archive')
+            ->get();
+        } 
+        if($iden == 'favorite')
+        {
+            return Folder::where('id', '!=', 1)
+            ->where('status', '=', 'favorite')
+            ->get();
+        }
+
     }
 
     public function photo()
@@ -72,14 +107,29 @@ class DashboardController extends Controller
     }
 
     
-    public function archive()
+    public function archive(Request $request)
     {
         $identity = 'archive';
         $title = "Archive";
         $filterActive = null;
         $folder = Folder::find(1);
-        $photos = Photo::where('status', '=', 'archive')->get();
-        $folders = Folder::where('status', '=', 'archive')->get();
+        $location = null;
+
+        if ($request->has('filter') && $request->input('filter') === 'photo') {
+            $photos = $this->filterAppPhotos($location, $identity);
+            $folders = collect(); // Empty collection as folders are not needed in this case            
+            $filterActive = 'photo';
+        } elseif ($request->has('filter') && $request->input('filter') === 'folder') {
+            $folders = $this->filterAppFolders($location, $identity);
+            $photos = collect(); // Empty collection as photos are not needed in this case            
+            $filterActive = 'folder';
+        } else {
+            // Fetch both photos and folders if no specific filter is selected
+            $photos = Photo::where('status', 'archive')
+            ->get();
+            $folders = Folder::where('status', 'archive')
+            ->get();;
+        }        
         return view('home', compact('folder', 'title', 'photos','folders', 'identity', 'filterActive'));
 
     }

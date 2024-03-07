@@ -4,7 +4,15 @@
     <div class="flex gap-2">
         @if($title !== "Photo" && $title !== "Folder")
         <div class="flex gap-2 mt-1 flex-wrap">
+            @if($title == 'Beranda')
             <form action="{{ route('dashboard.filter') }}" method="GET">
+            @elseif($title == 'Archive')
+            <form action="{{ route('archive.filter') }}" method="GET">
+            @elseif($title == 'Favorite')
+            <form action="{{ route('favorite.filter') }}" method="GET">
+            @else
+            <form action="{{ route('dashboard.filter') }}" method="GET">
+            @endif
                 @csrf
                 <input type="hidden" name="filter" value="photo">
                 <input type="hidden" name="loc" value="{{ $title === 'Beranda' && $title === 'Archive' ? 1 : $folder->id}}">
@@ -13,7 +21,13 @@
                     Foto
                 </button>
             </form>
+            @if($title == 'Beranda')
             <form action="{{ route('dashboard.filter') }}" method="GET">
+            @elseif($title == 'Archive')
+            <form action="{{ route('archive.filter') }}" method="GET">
+            @elseif($title == 'Favorite')
+            <form action="{{ route('favorite.filter') }}" method="GET">
+            @endif
                 @csrf
                 <input type="hidden" name="filter" value="folder  ">
                 <input type="hidden" name="loc" value="{{ $title === 'Beranda' || $title === 'Archive' ? 1 : $folder->id}}">

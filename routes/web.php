@@ -27,7 +27,9 @@ use App\Http\Controllers\DownloadController;
 // });
 
 Route::get("/", [DashboardController::class,"index"])->middleware('auth')->name('dashboard');
-Route::get("/filter", [DashboardController::class,"index"])->middleware('auth')->name('dashboard.filter');
+Route::get("/filter-dashboard", [DashboardController::class,"index"])->middleware('auth')->name('dashboard.filter');
+Route::get("/filter-archive", [DashboardController::class,"archive"])->middleware('auth')->name('archive.filter');
+Route::get("/filter-favorite", [DashboardController::class,"favorite"])->middleware('auth')->name('favorite.filter');
 Route::get('/autentikasi', [AuthenticateController::class, 'index'])->name('login');
 Route::post('login', [AuthenticateController::class,'login'])->name('authlogin');
 Route::get('/logout', [AuthenticateController::class,'logout'])->middleware('auth')->name('logout');

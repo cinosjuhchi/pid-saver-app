@@ -15,7 +15,7 @@
         {{ Session::get('error') }}
     </div>
     @endif
-    @foreach ($folder->subFolders as $subFolder)
+    @foreach ($subFolders as $subFolder)
     <div class="group">
         <div class="relative">
             <div class="card-folder bg-white rounded-md p-3 group-hover:bg-neutral-200 transition-all flex flex-col">
@@ -31,8 +31,8 @@
                             <!-- Example dropdown content: -->
                             <div class="rounded border-gray-300 bg-white shadow-md p-2 text-sm transition-all">
                                 <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="" id="openFolder"><i class="bi bi-pencil-square"></i>Ganti nama</a>                                
-                                <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('favorite-folder', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                                
-                                <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-archive"></i>Pindahkan ke arsip</a>                                
+                                <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('favorite-folder', ['id' => $folder->id]) }}" id="openFolder"><i class="bi bi-star"></i>Tambah ke Favorit</a>                                                                          
+                                <a href="{{ $subFolder->status == 'archive' ? route('unstatus-folder', ['id' => $subFolder->id]) : route('archive-folder', ['id' => $subFolder->id]) }}" class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" id="openFolder"><i class="bi bi-archive"></i>{{ $subFolder->status == 'archive' ? 'Hapus dari Arsip' : 'Tambahkan ke Arsip' }}</a>                                                      
                                 <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer" href="{{ route('download-zip', ['id' => $subFolder->id]) }}" id="openFolder"><i class="bi bi-download"></i>Download</a>                                
                                 <a class="hover:bg-slate-200 px-3 py-2 rounded-sm flex justify-start items-center gap-2 w-full cursor-pointer text-red-500" id="openFolder"><i class="bi bi-trash"></i>Hapus</a>                                
                             </div>

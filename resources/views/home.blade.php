@@ -45,7 +45,7 @@
     @endif
 
 
-    @if($title == 'Beranda' || $title == 'Folder' || $title == 'Archive' )
+    @if($title == 'Beranda' || $title == 'Folder' || $title == 'Archive' || $title == 'Favorite' )
     @foreach ($folders as $folder)
         
         <div class="group">
